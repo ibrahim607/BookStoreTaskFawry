@@ -25,28 +25,27 @@ public class QuantumBookStoreTesting {
         inventory.addBook(demoBook, 0);
 
         inventory.buyBook("PB101", 2);
-
         inventory.buyBook("EB202", 1);
-
         inventory.buyBook("DB303", 1);
 
         try {
             inventory.buyBook("PB101", 100);
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Quantum book store - ERROR: " + e.getMessage());
         }
 
         try {
             inventory.buyBook("Non_existing_ISNB", 1);
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Quantum book store - ERROR: " + e.getMessage());
         }
 
         List<Book> removed = inventory.removeOutdated(2016);
-        System.out.println("Removed outdated books:");
+        System.out.println("Quantum book store - Removed outdated books:");
         for (Book book : removed) {
             System.out.println("- " + book.getTitle() + " (" + book.getPublishYear() + ")");
         }
 
+        inventory.printReceipt();
     }
 }

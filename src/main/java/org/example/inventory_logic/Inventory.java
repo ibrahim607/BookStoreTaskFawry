@@ -12,6 +12,7 @@ import java.util.List;
 public class Inventory {
     private List<Book> bookStock = new ArrayList<>();
     private Customer customer;
+    private List<Order> orders = new ArrayList<>();
 
     public Inventory(Customer customer) {
         this.customer = customer;
@@ -51,6 +52,7 @@ public class Inventory {
             MailService mailService = new MailService();
             mailService.finalizePurchase(book , customer.getEmail());
         }
+        orders.add(new Order(book.getTitle(), book.getAuthor(), quantity, book.getPrice()));
     }
 
     public List<Book> removeOutdated(int year){
@@ -65,4 +67,15 @@ public class Inventory {
         }
         return removedBooks;
     }
+
+    public void printReceipt() {
+        System.out.println("Quantum book store - Full Receipt:");
+        double total = 0;
+        for (Order order : orders) {
+            System.out.println(order);
+            total += order.getTotal();
+        }
+        System.out.println("Total paid: " + total + " EGP");
+    }
+
 }
