@@ -1,8 +1,7 @@
 # Sample Console Output
-```
-![Uploading idea64_2T17Qu0toN.png…]()
 
-```
+![idea64_2T17Qu0toN](https://github.com/user-attachments/assets/be2484db-a0ef-4948-b64c-39b0d9460787)
+
 
 # Quantum Book Store
 A Java console application that simulates a bookstore system.
